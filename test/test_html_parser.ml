@@ -1309,5 +1309,14 @@ let tests = [
         1, 14, S (start_element "frame");
         1, 14, S  `End_element;
         1, 21, S  `End_element;
-        1, 32, S  `End_element])
+        1, 32, S  `End_element]);
+
+  ("html.parser.body-attrs-after-bad-head" >:: fun _ ->
+    expect {|<img><body attr="value">|}
+      [ 1,  1, S (start_element "html");
+        1,  1, S (start_element "head");
+        1,  1, S  `End_element;
+        1,  1, S (`Start_element ((html_ns, "body"), [(("", "attr"), "value")]));
+        1, 20, S  `End_element;
+        1, 20, S  `End_element])
 ]
