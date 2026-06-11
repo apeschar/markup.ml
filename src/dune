@@ -2,6 +2,5 @@
  (name markup)
  (public_name markup)
  (synopsis "Error-recovering functional HTML5 and XML parsers")
- (instrumentation (backend bisect_ppx))
  (libraries uutf)
  (flags (:standard -w -9)))

@@ -32,8 +32,7 @@ opam install --deps-only .
 <a id="building"></a>
 ## Building and testing
 
-To test the code, run `make test`. To generate a coverage report, run `make
-coverage`. There are several other kinds of testing:
+To test the code, run `make test`. There are several other kinds of testing:
 
 - `make performance-test` measures time for Markup.ml to parse some XML and HTML
   files. You should have `ocamlnet` and `xmlm` installed. Those libraries will

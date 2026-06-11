@@ -13,14 +13,6 @@ entities :
 test :
 	dune runtest
 
-.PHONY : coverage
-coverage :
-	find . -name '*.coverage' | xargs rm -f
-	dune runtest --instrument-with bisect_ppx --force
-	bisect-ppx-report html --expect src/ --do-not-expect src/translate_entities/
-	bisect-ppx-report summary
-	@echo See _coverage/index.html
-
 .PHONY : performance-test
 performance-test :
 	dune exec test/performance/performance_markup.exe
@@ -106,4 +98,3 @@ check-doc-prereqs :
 clean :
 	rm -rf $(HTML) $(PUBLISH) $(DOC_ZIP)
 	dune clean
-	rm -rf _coverage
